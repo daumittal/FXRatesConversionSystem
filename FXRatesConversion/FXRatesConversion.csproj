@@ -91,16 +91,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FXRatesConversionSystem\FXRateService\FXRateService.csproj">
-      <Project>{81e085c3-c665-4551-bb38-caae19fdcb0f}</Project>
-      <Name>FXRateService</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FXRateService\FXRateService.csproj">
+      <Project>{81e085c3-c665-4551-bb38-caae19fdcb0f}</Project>
+      <Name>FXRateService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

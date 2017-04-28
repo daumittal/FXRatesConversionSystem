@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FXRatesConversion", "FXRatesConversion\FXRatesConversion.csproj", "{4D6A0322-A5E4-4624-8B28-A5673F07DD2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FXRateService", "..\FXRatesConversionSystem\FXRateService\FXRateService.csproj", "{81E085C3-C665-4551-BB38-CAAE19FDCB0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FXRateService", "FXRateService\FXRateService.csproj", "{81E085C3-C665-4551-BB38-CAAE19FDCB0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
