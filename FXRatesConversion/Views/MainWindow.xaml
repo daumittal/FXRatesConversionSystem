@@ -1,0 +1,56 @@
+﻿<Window x:Class="FXRatesConversion.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:VM="clr-namespace:FXRatesConversion.ViewModel"
+        mc:Ignorable="d"
+        Title="" Height="550" Width="650" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Window.DataContext>
+        <VM:FxRatesDisplayViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}" x:Key="MyStyle">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="Transparent"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Binding.TargetUpdated">
+                    <BeginStoryboard HandoffBehavior="Compose">
+                        <Storyboard TargetProperty="(TextBlock.Background).(SolidColorBrush.Color)">
+                            <ColorAnimation Duration="0:0:1.00" To="Red" AutoReverse="True"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20">
+            </RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Real-Time FX Rates Conversion" HorizontalAlignment="Center" Background="Green" FontSize="16" FontWeight="Bold"></TextBlock>
+        <DataGrid Grid.Row="1" Name="dataGrid" ItemsSource="{Binding Records}" AutoGenerateColumns="False"  Width="600" Height="300">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="" Binding="{Binding RateViewModels[0].FromCurrency}" Width="60"/>
+                <DataGridTextColumn Header="USD" Binding="{Binding RateViewModels[1].Rate, StringFormat=N2,  NotifyOnTargetUpdated=True}" Width="40" ElementStyle="{StaticResource MyStyle}"/>
+                <DataGridTextColumn Header="GBP" Binding="{Binding RateViewModels[2].Rate, StringFormat=N2,  NotifyOnTargetUpdated=True}" Width="40" ElementStyle="{StaticResource MyStyle}"/>
+                <DataGridTextColumn Header="EUR" Binding="{Binding RateViewModels[3].Rate, StringFormat=N2,  NotifyOnTargetUpdated=True}" Width="40" ElementStyle="{StaticResource MyStyle}"/>
+                <DataGridTextColumn Header="AUD" Binding="{Binding RateViewModels[4].Rate, StringFormat=N2,  NotifyOnTargetUpdated=True}" Width="40" ElementStyle="{StaticResource MyStyle}"/>
+                <DataGridTextColumn Header="CAD" Binding="{Binding RateViewModels[5].Rate, StringFormat=N2,  NotifyOnTargetUpdated=True}" Width="40" ElementStyle="{StaticResource MyStyle}"/>
+                <DataGridTextColumn Header="ZAR" Binding="{Binding RateViewModels[6].Rate, StringFormat=N2,  NotifyOnTargetUpdated=True}" Width="40" ElementStyle="{StaticResource MyStyle}"/>
+                <DataGridTextColumn Header="JPY" Binding="{Binding RateViewModels[7].Rate, StringFormat=N2,  NotifyOnTargetUpdated=True}" Width="40" ElementStyle="{StaticResource MyStyle}"/>
+                <DataGridTextColumn Header="INR" Binding="{Binding RateViewModels[8].Rate, StringFormat=N2,  NotifyOnTargetUpdated=True}" Width="40" ElementStyle="{StaticResource MyStyle}"/>
+                <DataGridTextColumn Header="CNY" Binding="{Binding RateViewModels[9].Rate, StringFormat=N2,  NotifyOnTargetUpdated=True}" Width="40" ElementStyle="{StaticResource MyStyle}"/>
+                <DataGridTextColumn Header="NZD" Binding="{Binding RateViewModels[10].Rate, StringFormat=N2,  NotifyOnTargetUpdated=True}" Width="40" ElementStyle="{StaticResource MyStyle}"/>
+                <DataGridTextColumn Header="CHF" Binding="{Binding RateViewModels[11].Rate, StringFormat=N2,  NotifyOnTargetUpdated=True}" Width="40" ElementStyle="{StaticResource MyStyle}"/>
+                <DataGridTextColumn Header="HKD" Binding="{Binding RateViewModels[12].Rate, StringFormat=N2,  NotifyOnTargetUpdated=True}" Width="40" ElementStyle="{StaticResource MyStyle}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

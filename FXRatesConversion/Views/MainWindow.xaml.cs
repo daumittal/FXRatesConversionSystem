@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FXRatesConversion
+namespace FXRatesConversion.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
